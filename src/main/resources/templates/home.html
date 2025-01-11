@@ -15,7 +15,9 @@
   </head>
   <body>
     <div class="container">
-      <h1>Welcome to home Page</h1>
+      <h1 data-th-text="${firstName}">Welcome to home Page</h1>
+      <p>Occupation: <span data-th-text="${occupation}"></span></p>
+      <p>Address: <span th:text="${address}"></span></p>
       <p>
         Lorem ipsum dolor sit amet consectetur adipisicing elit. Accusamus vel,
         nobis ea eos, officia ratione atque placeat consequatur fuga provident
