@@ -4,25 +4,27 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Document</title>
-    <style>
-        .container{
-            margin: auto;
-            width: 50%;
-            padding: 30px;
-            background-color: #e2e2e2;
-        }
-    </style>
+    <link rel="stylesheet" data-th-href="@{'/css/output.css'}" />
   </head>
   <body>
-    <div class="container">
-      <h1 data-th-text="${firstName}">Welcome to home Page</h1>
-      <p>Occupation: <span data-th-text="${occupation}"></span></p>
+    <div class="bg-gray-200 w-1/2 p-4 mx-auto mt-4 flex flex-col space-y-3 justify-center items-center">
+      <h1 class="text-2xl font-bold" data-th-text="${firstName}">
+        Welcome to home Page
+      </h1>
+      <p class="text-xl text-gray-700">
+        Occupation: <span data-th-text="${occupation}"></span>
+      </p>
       <p>Address: <span th:text="${address}"></span></p>
-      <p>
+      <p class="text-gray-600">
         Lorem ipsum dolor sit amet consectetur adipisicing elit. Accusamus vel,
         nobis ea eos, officia ratione atque placeat consequatur fuga provident
         nam esse error laudantium deserunt sequi aperiam fugit et ullam.
       </p>
+      <div>
+        <button class="px-3 py-2 rounded bg-blue-700 hover:bg-blue-400">
+          Click Here
+        </button>
+      </div>
     </div>
   </body>
 </html>
