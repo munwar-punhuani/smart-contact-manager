@@ -6,6 +6,11 @@
     <title>Document</title>
 </head>
 <body>
-    <h1>This is Services Page</h1>
+   <h1>This is services page</h1>
+   <hr/>
+   <!-- using fragment -->
+    <div class="host-tag" th:replace="~{base :: parent('services one','services two')}">
+
+    </div>
 </body>
 </html>
