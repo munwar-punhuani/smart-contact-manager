@@ -1,24 +1,15 @@
 <!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-</head>
-<body>
-   <h1>This is About page</h1>
-   <hr/>
-   <!-- using fragment -->
-    <div class="host-tag" th:replace="${isLogin} ?  ~{base :: parent(~{::section})} : ~{base :: test(~{::#not_logged_in})}">
-        <section>
-            <h1>User is loggedin</h1>
-            <h1>Dynamic Content</h1>
-            <p>Lorem ipsum dolorad eligendi, ipsa molestias corrupti!</p>
-            <button>Click on Dynamic Content</button>
-        </section>
-        <section id="not_logged_in">
-            <h1>User is not logged in</h1>
-        </section>
-    </div>  
-</body>
+<html lang="en" th:replace="~{base :: parent-fragment(~{::#content},~{::title},~{::script})}">
+  <head> 
+    <title>About Page</title>
+  </head>
+  <body>
+    <div id="content">
+        <h1>Welcome to about page</h1>
+        <p>Lorem ipsum dolor sit, amet quasi adipisci aspernatur. Ipsum voluptatem ratione  nisi cum necessitatibus blanditiis iste.</p>
+    </div>
+    <script>
+        console.log("About Page")
+    </script>
+  </body>
 </html>
