@@ -12,7 +12,12 @@ import org.springframework.web.bind.annotation.RequestMethod;
 
 import com.scm.entities.User;
 import com.scm.forms.UserForm;
+import com.scm.helpers.Message;
+import com.scm.helpers.Message.MessageBuilder;
+import com.scm.helpers.MessageType;
 import com.scm.services.UserService;
+
+import jakarta.servlet.http.HttpSession;
 
 @Controller
 public class PageController {
@@ -71,22 +76,13 @@ public class PageController {
 
     // Processing register
     @RequestMapping(value = "do-register", method = RequestMethod.POST)
-    public String processRegister(@ModelAttribute UserForm userForm) {
+    public String processRegister(@ModelAttribute UserForm userForm,HttpSession session) {
         System.out.println("Processing Registration");
         // fetch form data
         System.out.println(userForm);
         // validate form data
         // TODO: NEXT VIDEO
         // save to database
-        // convert userForm to user
-        // User user = User.builder()
-        // .name(userForm.getName())
-        // .email(userForm.getEmail())
-        // .password(userForm.getPassword())
-        // .about(userForm.getAbout())
-        // .phoneNumber(userForm.getPhoneNumber())
-        // .profilePic("https://www.youtube.com/watch?v=SAqi7zmW1fY&t=19055s")
-        // .build();
 
         User user = new User();
         user.setName(userForm.getName());
@@ -98,6 +94,9 @@ public class PageController {
 
         Optional<User> savedUser = userService.saveUser(user);
         // message = "Registration Successful"
+        Message message = Message.builder().content("Registration Successful!!").messageType(MessageType.green).build();
+        session.setAttribute("message",message);
+
         System.out.println("User saved: "+savedUser);
         // redirect to login page
         return "redirect:/register";
