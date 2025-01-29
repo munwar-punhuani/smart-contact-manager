@@ -10,7 +10,6 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
-
 import com.scm.entities.User;
 import com.scm.forms.UserForm;
 import com.scm.helpers.Message;
@@ -20,11 +19,18 @@ import com.scm.services.UserService;
 import jakarta.servlet.http.HttpSession;
 import jakarta.validation.Valid;
 
+
 @Controller
 public class PageController {
 
     @Autowired
     private UserService userService;
+
+    @GetMapping("/")
+    public String index() {
+        return "redirect:home";
+    }
+    
 
     @RequestMapping("/home")
     public String home(Model model) {
